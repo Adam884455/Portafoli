@@ -799,4 +799,13 @@ a {
         width: 100%;
         right: -100%;
     }
+
+    .split-layout {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .activity-hero h1 {
+        font-size: 2.5rem;
+    }
 }
