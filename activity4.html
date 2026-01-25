@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activitat 4 - Estereotips i Insults</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific banner for Activity 4 */
+        .banner-act4 {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/cover-activity4.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .epic-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 60px auto;
+            /* Increased margin */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            position: relative;
+            overflow: visible;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #transformImage {
+            max-width: 500px;
+            max-height: 50vh;
+            width: 100%;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .epic-header {
+            color: gold;
+            text-shadow: 0 0 10px red;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .styled-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .styled-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .btn-reset {
+            background: linear-gradient(45deg, #03dac6, #018786);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+            border: 1px solid #03dac6;
+        }
+
+        .btn-reset:hover {
+            box-shadow: 0 6px 20px rgba(3, 218, 198, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* --- ZIGZAG LAYOUT COPY --- */
+        .zigzag-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .zigzag-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+        }
+
+        .zigzag-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .zigzag-text {
+            flex: 1.5;
+        }
+
+        .zigzag-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zigzag-image img {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            /* Constrain height to align with text */
+            object-fit: contain;
+            /* Ensure full image is visible without crop */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .zigzag-image img:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+
+            .zigzag-row,
+            .zigzag-row:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .zigzag-image img {
+                max-width: 100%;
+            }
+        }
+
+        /* --- LIGHTBOX STYLES --- */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        #lightbox-img {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 10px;
+            transform: scale(0.8);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid white;
+        }
+
+        #lightbox.active #lightbox-img {
+            transform: scale(1);
+        }
+
+        /* SLIDE ANIMATION CLASSES */
+        .slide-left {
+            animation: slideLeft 0.4s ease forwards;
+        }
+
+        .slide-right {
+            animation: slideRight 0.4s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .arrow-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 50%;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .arrow-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .arrow-btn:disabled {
+            opacity: 0.1;
+            /* Almost invisible when disabled */
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .arrow-left {
+            margin-right: 20px;
+        }
+
+        .arrow-right {
+            margin-left: 20px;
+        }
+
+        .btn-zoom-outer {
+            display: inline-block;
+            margin-top: 10px;
+            background: #333;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid #555;
+            transition: 0.3s;
+        }
+
+        .btn-zoom-outer:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BANNER HERO -->
+    <header class="activity-hero banner-act4">
+        <a href="index.html" class="btn btn-top-left"
+            style="background: rgba(0,0,0,0.5); border: 1px solid white;">&larr; Tornar a l'Inici</a>
+        <div class="container reveal reveal-bottom">
+            <h1>Activitat 4: Estereotips i Insults</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- PDF INSERTED HERE -->
+            <!-- PDF Toggle Button -->
+            <div class="text-center reveal reveal-bottom" style="margin-bottom: 30px;">
+                <button id="togglePdfBtn" class="btn btn-lg" onclick="togglePdf()">📄 Veure Instruccions (PDF)</button>
+            </div>
+
+            <!-- Hidden PDF Container -->
+            <div id="pdfContainer" class="glass-card pdf-viewer-container reveal reveal-left" style="display: none; padding: 0; 
+            height: 85vh; margin-bottom: 40px; border-radius: 15px;">
+                <embed src="assets/activity4-instructions.pdf" type="application/pdf" width="100%" height="100%"
+                    style="border-radius: 13px;">
+            </div>
+
+
+            <div class="zigzag-container">
+
+                <!-- Section 1: Estereotips -->
+                <div class="zigzag-row reveal reveal-left">
+                    <div class="zigzag-text glass-card">
+                        <h2>El que transmeten les paraules i frases</h2>
+                        <div style="font-size: 1.05rem; line-height: 1.8;">
+                            <p style="margin-bottom: 15px;">En general totes aquestes paraules i frases transmeten coses
+                                com:</p>
+                            <ul class="styled-list">
+                                <li>Que tan els homes com les dones tenen uns rols fixes que no es poden canviar.</li>
+                                <li>Que ni les dones ni els homes poden mostrar els seus sentiments o emocions reals:
+                                    "Els homes no ploren", "Les dones són histèriques".</li>
+                                <li>Que el cos de la dona es pren com a objecte de desig.</li>
+                                <li>Que alguns comportaments femenins són mal vistos: Parlar molt, tindre poder, vestir
+                                    com volen.</li>
+                                <li>Que certs rols estàn restringits a cada gènere: Conduir, Liderar, Modelar...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="zigzag-image">
+                        <!-- Added the new specific image for this section -->
+                        <img src="assets/activity4-stereotypes-new.png" alt="Imatge El que transmeten">
+                    </div>
+                </div>
+
+                <!-- Section 2: Conclusio -->
+                <div class="zigzag-row reveal reveal-right">
+                    <div class="zigzag-text glass-card">
+                        <h2>Conclusió: Què reforcen?</h2>
+                        <p>Bàsicament reforcen coses com:</p>
+                        <ul class="styled-list" style="margin-top: 10px;">
+                            <li><strong>Submissió femenina i autoritat masculina.</strong></li>
+                            <li><strong>Sexualització del cos de la dona.</strong></li>
+                            <li><strong>Força emocional (repressió en homes).</strong></li>
+                            <li><strong>Limitació d'aptituds.</strong></li>
+                        </ul>
+                        <div
+                            style="background: rgba(255,255,255,0.05); padding: 20px; border-left: 4px solid var(--secondary-accent); margin-top: 20px; border-radius: 0 10px 10px 0;">
+                            <p>Tots aquests estereotips el que fan és beneficiar el model tradicional d'home fort o de
+                                masculinitat i perjudiquen tan a les dones com als homes que surten dels rols de gènere
+                                tradicionals.</p>
+                        </div>
+                    </div>
+                    <div class="zigzag-image">
+                        <!-- Added the new specific image for this section -->
+                        <img src="assets/activity4-reinforce-new.png" alt="Imatge Conclusió">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SUPER EPIC TRANSFORMATION ZONE -->
+            <div class="epic-container reveal reveal-bottom glass-card">
+                <h2 class="epic-header">✨ TRANSFORMA EL LLENGUATGE ✨</h2>
+
+                <div style="margin: 10px 0; position: relative; text-align: center;">
+                    <!-- IMAGE -->
+                    <img id="transformImage" src="assets/activity4-before.jpg" alt="Estereotips">
+
+                    <!-- Explosion Anchor -->
+                    <div id="explosionEffect"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0; background: white; border-radius: 50%; z-index: 10; pointer-events: none;">
+                    </div>
+                </div>
+
+                <!-- EXTERNAL ZOOM BUTTON (Below Image) -->
+                <button class="btn-zoom-outer" onclick="openLightbox()">
+                    🔍 Ampliar Imatge
+                </button>
+
+                <button id="transformBtn" class="btn btn-lg btn-epic" onclick="startEpicTransformation()"
+                    style="margin-top: 20px;">
+                    <span>🔥 TRENCAR ESTEREOTIPS 🔥</span>
+                </button>
+
+                <button id="resetBtn" class="btn btn-reset" onclick="resetTransformation()"
+                    style="display: none; margin-top: 20px;">
+                    🔄 Veure original
+                </button>
+            </div>
+
+            <div class="reveal reveal-bottom text-center"
+                style="margin: 50px 0; display: flex; justify-content: space-between;">
+                <a href="activity3.html" style="color: var(--secondary-accent);">&larr; Anterior</a>
+                <a href="activity5.html" style="color: var(--secondary-accent);">Següent Activitat &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button id="prevBtn" class="arrow-btn arrow-left" onclick="changeImage(-1)">&#10094;</button>
+            <img id="lightbox-img" src="" alt="Imatge Ampliada">
+            <button id="nextBtn" class="arrow-btn arrow-right" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Contact Section (Footer) -->
+    <footer class="section" style="min-height: 20vh; background: rgba(0,0,0,0.2); padding: 20px 0;">
+        <div class="container reveal reveal-bottom">
+            <h2 class="text-center" style="font-size: 1.2rem; margin-bottom: 10px;">Contacte</h2>
+            <div class="contact-info" style="margin-top: 10px;">
+                <div class="contact-item">
+                    <h3 style="font-size: 1rem;">Adam El Mouden Zematy</h3>
+                    <p style="font-size: 0.9rem;">1r Batxillerat CT</p>
+                    <p style="color: var(--secondary-accent); font-size: 0.9rem; margin-top: 5px;">adaelmzem@biada.net
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <h3 style="font-size: 1rem;">Arnau Contreras Taberner</h3>
+                    <p style="font-size: 0.9rem;">1r Batxillerat HS</p>
+                    <p style="color: var(--secondary-accent); font-size: 0.9rem; margin-top: 5px;">arncontab@biada.net
+                    </p>
+                </div>
+            </div>
+            <!-- NEW COPYRIGHT FOOTER -->
+            <div class="copyright-footer">
+                <p>Web feta per l'Adam El Mouden Zematy. Tots els drets reservats &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // PDF TOGGLE
+        function togglePdf() {
+            const container = document.getElementById('pdfContainer');
+            const btn = document.getElementById('togglePdfBtn');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                btn.textContent = '❌ Tancar Instruccions';
+            } else {
+                container.style.display = 'none';
+                btn.textContent = '📄 Veure Instruccions (PDF)';
+            }
+        }
+
+        // --- TRANSFORMATION LOGIC ---
+        function startEpicTransformation() {
+            const img = document.getElementById('transformImage');
+            const btn = document.getElementById('transformBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const explosion = document.getElementById('explosionEffect');
+            const body = document.body;
+
+            // 1. Start Chaos
+            img.classList.add('transforming');
+            btn.style.display = 'none';
+            body.classList.add('shake-screen');
+
+            // 2. Spark Spawn
+            let sparkInterval = setInterval(() => {
+                for (let i = 0; i < 5; i++) createSpark(img);
+            }, 20);
+
+            // 3. Swap
+            setTimeout(() => {
+                img.src = "assets/activity4-after.jpg";
+                explosion.style.transition = 'width 0.05s, height 0.05s, opacity 0.2s';
+                explosion.style.width = '3000px';
+                explosion.style.height = '3000px';
+                explosion.style.opacity = '1';
+                body.style.backgroundColor = 'white';
+                setTimeout(() => {
+                    explosion.style.opacity = '0';
+                    explosion.style.width = '0';
+                    explosion.style.height = '0';
+                    body.style.backgroundColor = '';
+                }, 100);
+            }, 1400);
+
+            // 4. End
+            setTimeout(() => {
+                img.classList.remove('transforming');
+                body.classList.remove('shake-screen');
+                clearInterval(sparkInterval);
+                img.style.boxShadow = "0 0 100px gold, 0 0 200px orange";
+                img.style.border = "5px solid gold";
+                img.style.transform = "scale(1.1)";
+                resetBtn.style.display = 'inline-block';
+            }, 3000);
+        }
+
+        function createSpark(parent) {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+            const rect = parent.getBoundingClientRect();
+            document.body.appendChild(spark);
+            const scrollX = window.scrollX;
+            const scrollY = window.scrollY;
+            const startX = rect.left + scrollX + rect.width / 2;
+            const startY = rect.top + scrollY + rect.height / 2;
+            spark.style.left = startX + 'px';
+            spark.style.top = startY + 'px';
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 200 + Math.random() * 500;
+            const tx = Math.cos(angle) * velocity + 'px';
+            const ty = Math.sin(angle) * velocity + 'px';
+            spark.style.setProperty('--tx', tx);
+            spark.style.setProperty('--ty', ty);
+            const colors = ['gold', 'orange', 'red', 'white', 'yellow'];
+            spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+            setTimeout(() => { spark.remove(); }, 800);
+        }
+
+        function resetTransformation() {
+            const img = document.getElementById('transformImage');
+            const btn = document.getElementById('transformBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            img.style.transition = "transform 1s ease, filter 1s ease";
+            img.style.transform = "rotate(-360deg) scale(0.1)";
+            img.style.opacity = "0";
+            setTimeout(() => {
+                img.src = "assets/activity4-before.jpg";
+                img.style.boxShadow = "none";
+                img.style.border = "none";
+                img.style.opacity = "1";
+                img.style.transform = "rotate(0deg) scale(1)";
+                btn.style.display = 'inline-block';
+                resetBtn.style.display = 'none';
+            }, 1000);
+        }
+
+        // --- LIGHTBOX LOGIC ---
+        const images = ["assets/activity4-before.jpg", "assets/activity4-after.jpg"];
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function openLightbox() {
+            // Determine start index based on current view
+            const currentSrc = document.getElementById('transformImage').getAttribute('src');
+            if (currentSrc.includes('after')) currentImageIndex = 1;
+            else currentImageIndex = 0;
+
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.addEventListener('keydown', handleKeydown);
+        }
+
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-content')) {
+                lightbox.classList.remove('active');
+                document.removeEventListener('keydown', handleKeydown);
+            }
+        }
+
+        function handleKeydown(e) {
+            if (e.key === 'ArrowRight') changeImage(1);
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.removeEventListener('keydown', handleKeydown);
+            }
+        }
+
+        function changeImage(direction) {
+            const newIndex = currentImageIndex + direction;
+            if (newIndex < 0 || newIndex >= images.length) return;
+
+            currentImageIndex = newIndex;
+
+            lightboxImg.classList.remove('slide-left', 'slide-right');
+            void lightboxImg.offsetWidth;
+
+            if (direction > 0) lightboxImg.classList.add('slide-left');
+            else lightboxImg.classList.add('slide-right');
+
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            lightboxImg.src = images[currentImageIndex];
+            prevBtn.disabled = (currentImageIndex === 0);
+            nextBtn.disabled = (currentImageIndex === images.length - 1);
+        }
+    </script>
+    <script src="js/atmosphere.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

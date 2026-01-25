@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activitat 3 - No soy un hombre fácil</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific banner for Activity 3 */
+        .banner-act3 {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/cover-activity3.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BANNER HERO -->
+    <header class="activity-hero banner-act3">
+        <a href="index.html" class="btn btn-top-left"
+            style="background: rgba(0,0,0,0.5); border: 1px solid white;">&larr; Tornar a l'Inici</a>
+        <div class="container reveal reveal-bottom">
+            <h1>Activitat 3: No soy un hombre fácil</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <p class="text-center reveal reveal-bottom" style="margin-bottom: 40px; font-size: 1.2rem; color: #ccc;">
+                Reflexió sobre la pel·lícula i els rols invertits.</p>
+
+            <!-- PDF Toggle Button -->
+            <div class="text-center reveal reveal-bottom" style="margin-bottom: 30px;">
+                <button id="togglePdfBtn" class="btn btn-lg" onclick="togglePdf()">📄 Veure Instruccions (PDF)</button>
+            </div>
+
+            <!-- Hidden PDF Container -->
+            <div id="pdfContainer" class="glass-card pdf-viewer-container reveal reveal-left" style="display: none; padding: 0; 
+            height: 85vh; margin-bottom: 40px; border-radius: 15px;">
+                <embed src="assets/activity3-instructions.pdf" type="application/pdf" width="100%" height="100%"
+                    style="border-radius: 13px;">
+            </div>
+
+            <!-- Images Section -->
+            <div class="glass-card reveal reveal-right" style="margin-bottom: 40px;">
+                <h2 class="text-center" style="margin-bottom: 20px;">Les Nostres Respostes</h2>
+                <div class="image-gallery"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+                    <img src="assets/activity3-1.jpg" alt="Escena 1"
+                        style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                    <img src="assets/activity3-2.jpg" alt="Escena 2"
+                        style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                </div>
+            </div>
+
+            <div class="reveal reveal-bottom text-center"
+                style="margin: 50px 0; display: flex; justify-content: space-between;">
+                <a href="activity2.html" style="color: var(--secondary-accent);">&larr; Anterior</a>
+                <a href="activity4.html" style="color: var(--secondary-accent);">Següent Activitat &rarr;</a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Contact Section (Footer) -->
+    <footer class="section" style="min-height: 20vh; background: rgba(0,0,0,0.2); padding: 20px 0;">
+        <div class="container reveal reveal-bottom">
+            <h2 class="text-center" style="font-size: 1.2rem; margin-bottom: 10px;">Contacte</h2>
+            <div class="contact-info" style="margin-top: 10px;">
+                <div class="contact-item">
+                    <h3 style="font-size: 1rem;">Adam El Mouden Zematy</h3>
+                    <p style="font-size: 0.9rem;">1r Batxillerat CT</p>
+                    <p style="color: var(--secondary-accent); font-size: 0.9rem;">adaelmzem@biada.net</p>
+                </div>
+                <div class="contact-item">
+                    <h3 style="font-size: 1rem;">Arnau Contreras Taberner</h3>
+                    <p style="font-size: 0.9rem;">1r Batxillerat HS</p>
+                    <p style="color: var(--secondary-accent); font-size: 0.9rem;">arncontab@biada.net</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Script to toggle PDF -->
+    <script>
+        function togglePdf() {
+            const container = document.getElementById('pdfContainer');
+            const btn = document.getElementById('togglePdfBtn');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                btn.textContent = '❌ Tancar Instruccions';
+            } else {
+                container.style.display = 'none';
+                btn.textContent = '📄 Veure Instruccions (PDF)';
+            }
+        }
+    </script>
+    <script src="js/atmosphere.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
