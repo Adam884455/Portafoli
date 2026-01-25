@@ -815,21 +815,27 @@ a {
         padding: 30px 0;
     }
 
-    /* Hero Sections - MUCH SMALLER COVERS FOR MOBILE */
-    .hero h1,
-    .activity-hero h1 {
-        font-size: 1.8rem;
-    }
-
+    /* Hero Sections - ULTRA COMPACT & NO ZOOM */
     .hero,
     .activity-hero {
-        height: 35vh !important;
-        min-height: 200px;
+        height: 22vh !important;
+        /* Extremely small to avoid 'huge' feeling */
+        min-height: 140px;
         background-size: 100% 100% !important;
-        /* Forces edges to match screen */
         background-attachment: scroll !important;
-        /* Parallax is often buggy on mobile */
-        background-position: center top !important;
+        background-position: center !important;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero h1,
+    .activity-hero h1 {
+        font-size: 1.5rem !important;
+        /* Tiny title for compact bar */
+        margin: 0;
+        padding: 0 10px;
     }
 
     /* Split & Zig-Zag Layouts */
@@ -896,15 +902,15 @@ a {
 
     .hero h1,
     .activity-hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem !important;
     }
 
     .hero,
     .activity-hero {
-        height: 40vh !important;
+        height: 20vh !important;
     }
 
     .btn-epic span {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }
