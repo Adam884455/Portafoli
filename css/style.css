@@ -812,30 +812,41 @@ a {
     }
 
     .section {
-        padding: 50px 0;
+        padding: 40px 0;
     }
 
     /* Hero Sections */
     .hero h1,
     .activity-hero h1 {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
     }
 
     .hero,
     .activity-hero {
-        height: 80vh;
-        /* Slightly shorter for mobile */
+        height: 75vh;
     }
 
     /* Split & Zig-Zag Layouts */
     .split-layout {
         flex-direction: column !important;
-        gap: 25px;
-        margin-bottom: 50px;
+        gap: 20px;
+        margin-bottom: 40px;
     }
 
     .intro-image-container {
         width: 100%;
+    }
+
+    /* Interactive Components */
+    .epic-container {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 15px !important;
+    }
+
+    .arrow-btn {
+        padding: 8px 15px !important;
+        font-size: 1.2rem !important;
     }
 
     /* Contact & Footer */
@@ -843,22 +854,36 @@ a {
         flex-direction: column;
         gap: 20px;
         align-items: center;
+        text-align: center;
     }
 
     .contact-item {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     /* Adjust glass cards */
     .glass-card {
-        padding: 20px;
+        padding: 18px;
     }
 
     /* Top Left Button Adjustments */
     .btn-top-left {
-        top: 15px;
-        left: 15px;
-        padding: 8px 15px;
-        font-size: 0.9rem;
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Specific for iPhone SE and similar */
+@media (max-width: 380px) {
+
+    .hero h1,
+    .activity-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-epic span {
+        font-size: 0.85rem;
     }
 }
