@@ -33,6 +33,11 @@ body {
     z-index: 1;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Page Transition Overlay */
 .page-transition-overlay {
     position: fixed;
@@ -795,17 +800,65 @@ a {
 }
 
 @media (max-width: 768px) {
+
+    /* Layout & Containers */
     .sidebar {
         width: 100%;
         right: -100%;
     }
 
-    .split-layout {
-        flex-direction: column !important;
-        gap: 20px;
+    .container {
+        padding: 0 15px;
     }
 
+    .section {
+        padding: 50px 0;
+    }
+
+    /* Hero Sections */
+    .hero h1,
     .activity-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
+    }
+
+    .hero,
+    .activity-hero {
+        height: 80vh;
+        /* Slightly shorter for mobile */
+    }
+
+    /* Split & Zig-Zag Layouts */
+    .split-layout {
+        flex-direction: column !important;
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .intro-image-container {
+        width: 100%;
+    }
+
+    /* Contact & Footer */
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .contact-item {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust glass cards */
+    .glass-card {
+        padding: 20px;
+    }
+
+    /* Top Left Button Adjustments */
+    .btn-top-left {
+        top: 15px;
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }
