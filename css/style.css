@@ -823,8 +823,13 @@ a {
 
     .hero,
     .activity-hero {
-        height: 45vh !important;
-        min-height: 250px;
+        height: 35vh !important;
+        min-height: 200px;
+        background-size: 100% 100% !important;
+        /* Forces edges to match screen */
+        background-attachment: scroll !important;
+        /* Parallax is often buggy on mobile */
+        background-position: center top !important;
     }
 
     /* Split & Zig-Zag Layouts */
