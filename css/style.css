@@ -705,7 +705,8 @@ a {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    padding: 60px 20px 20px;
+    padding: 50px 15px 15px;
+    /* Reduced top and side padding */
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
 }
@@ -740,7 +741,8 @@ a {
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
+    /* Reduced gap */
 }
 
 .collapsible-content {
@@ -763,9 +765,11 @@ a {
 
 .sidebar-link {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    /* Slightly smaller font */
     color: var(--text-color);
-    padding: 8px 10px;
+    padding: 6px 10px;
+    /* Reduced vertical padding */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: 0.3s;
     display: flex;

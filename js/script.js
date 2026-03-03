@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="assets/activity2.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 2: La Publicitat</a>
                     <a href="assets/activity3-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 3: Rols Invertits</a>
                     <a href="assets/activity4-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 4: Estereotips</a>
-                    <a href="assets/activity6-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 6: Opinions</a>
                     <a href="#" id="act5TextBtn" class="sidebar-link" style="font-size: 0.8rem;">💭 Act. 5: Reflexió (Text)</a>
+                    <a href="assets/activity6-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 6: Opinions</a>
                 </div>
                 
             </nav>
