@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="activity3.html" class="sidebar-link">🎬 Activitat 3</a>
                     <a href="activity4.html" class="sidebar-link">🗣️ Activitat 4</a>
                     <a href="activity5.html" class="sidebar-link">💭 Activitat 5</a>
+                    <a href="activity6.html" class="sidebar-link">📊 Activitat 6</a>
                 </div>
                 
                 <div class="sidebar-header" id="toggleInstrHeader" style="margin-top: 15px;">
@@ -106,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="assets/activity2.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 2: La Publicitat</a>
                     <a href="assets/activity3-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 3: Rols Invertits</a>
                     <a href="assets/activity4-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 4: Estereotips</a>
+                    <a href="assets/activity6-instructions.pdf" target="_blank" class="sidebar-link" style="font-size: 0.8rem;">📄 Act. 6: Opinions</a>
                     <a href="#" id="act5TextBtn" class="sidebar-link" style="font-size: 0.8rem;">💭 Act. 5: Reflexió (Text)</a>
                 </div>
                 

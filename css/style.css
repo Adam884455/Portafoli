@@ -815,27 +815,42 @@ a {
         padding: 30px 0;
     }
 
-    /* Hero Sections - ULTRA COMPACT & NO ZOOM */
+    /* Hero Sections - FLEXIBLE & RESPONSIVE */
     .hero,
     .activity-hero {
-        height: 22vh !important;
-        /* Extremely small to avoid 'huge' feeling */
-        min-height: 140px;
-        background-size: 100% 100% !important;
+        height: auto !important;
+        min-height: 50vh !important;
+        /* Adjusted to fit content comfortably */
+        padding: 60px 20px !important;
+        background-size: cover !important;
         background-attachment: scroll !important;
         background-position: center !important;
         margin-bottom: 15px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
     .hero h1,
     .activity-hero h1 {
-        font-size: 1.5rem !important;
-        /* Tiny title for compact bar */
-        margin: 0;
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+        /* Responsive scaling title */
+        margin-bottom: 15px;
+        padding: 0;
+        line-height: 1.2;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .hero p {
+        font-size: 1rem;
         padding: 0 10px;
+    }
+
+    .hero div[style*="margin-top: 40px"] {
+        margin-top: 20px !important;
+        /* Reduce gap on mobile */
     }
 
     /* Split & Zig-Zag Layouts */
@@ -902,12 +917,12 @@ a {
 
     .hero h1,
     .activity-hero h1 {
-        font-size: 1.3rem !important;
+        font-size: 1.6rem !important;
     }
 
     .hero,
     .activity-hero {
-        height: 20vh !important;
+        min-height: 40vh !important;
     }
 
     .btn-epic span {
