@@ -41,9 +41,10 @@
                 height: '100vh',
                 zIndex: '-1',
                 pointerEvents: 'none',
-                filter: 'blur(50px) brightness(130%) contrast(120%)',
-                opacity: '1'
+                opacity: '0.6' // Reduced opacity for subtle effect
             });
+            // Use CSS blur on a wrapper if needed, but here we try to keep it light.
+            // Removing the expensive SVG/CSS filter from the canvas element itself.
             document.body.appendChild(canvas);
 
             this.width = 40;

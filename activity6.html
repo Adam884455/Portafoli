@@ -59,6 +59,18 @@
     <section class="section">
         <div class="container">
 
+            <!-- Activity Description -->
+            <div class="glass-card reveal reveal-bottom" style="margin-bottom: 40px;">
+                <h2 style="color: var(--accent-color);">Sobre l'Activitat 6</h2>
+                <p>En aquesta activitat hem dut a terme una recerca de camp sobre les opinions de la societat respecte a
+                    les desigualtats de gènere, centrant-nos especialment en l'àmbit de l'esport.</p>
+                <br>
+                <p>Hem analitzat les respostes de diferents persones per entendre com es perceben les oportunitats, la
+                    visibilitat i el tracte cap a homes i dones en diverses disciplines esportives. L'objectiu final ha
+                    estat reflexionar sobre si encara existeixen barreres invisibles i com treballar per a una igualtat
+                    real en aquest sector.</p>
+            </div>
+
             <div class="glass-card reveal reveal-bottom" style="margin-bottom: 40px; text-align: center;">
                 <h2>Recursos de l'Activitat</h2>
                 <p style="margin-bottom: 25px;">Aquí pots trobar les instruccions detallades i els resultats obtinguts
@@ -71,8 +83,9 @@
                     <button id="toggleResBtn" class="btn btn-lg" style="background: var(--secondary-accent);"
                         onclick="togglePdf('assets/activity6-all-responses.pdf', 'toggleResBtn', '📊 Veure Resultats Globals (PDF)')">📊
                         Veure Resultats Globals (PDF)</button>
-                    <a href="assets/activity6-individual-responses.pdf" target="_blank" class="btn btn-lg"
-                        style="background: #4a4a4a;">📑 Respostes Individuals (PDF)</a>
+                    <button id="toggleIndBtn" class="btn btn-lg" style="background: #4a4a4a;"
+                        onclick="togglePdf('assets/activity6-individual-responses.pdf', 'toggleIndBtn', '📑 Respostes Individuals (PDF)')">📑
+                        Respostes Individuals (PDF)</button>
                 </div>
 
                 <!-- Shared PDF Container -->
@@ -82,43 +95,43 @@
                 </div>
             </div>
 
-            <!-- Presentation Section -->
+            <!-- Presentation Slider Section -->
             <div class="glass-card reveal reveal-bottom">
                 <h2 class="text-center">Presentació dels Resultats</h2>
-                <p class="text-center">Anàlisi detallada de les opinions sobre les desigualtats en l'àmbit de l'esport.
-                </p>
+                <p class="text-center" style="margin-bottom: 20px;">Fes servir les <b>fletxes</b> o l'<b>espai</b> per
+                    passar de diapositiva.</p>
 
-                <div class="presentation-gallery">
-                    <img src="assets/presentation_act6/1.png" alt="Slide 1"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/2.png" alt="Slide 2"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/3.png" alt="Slide 3"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/4.png" alt="Slide 4"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/5.png" alt="Slide 5"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/6.png" alt="Slide 6"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/7.png" alt="Slide 7"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/8.png" alt="Slide 8"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/9.png" alt="Slide 9"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/10.png" alt="Slide 10"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/11.png" alt="Slide 11"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/12.png" alt="Slide 12"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/13.png" alt="Slide 13"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/14.png" alt="Slide 14"
-                        class="presentation-slide reveal reveal-bottom">
-                    <img src="assets/presentation_act6/15.png" alt="Slide 15"
-                        class="presentation-slide reveal reveal-bottom">
+                <div class="slider-container"
+                    style="position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                    <div id="presentationSlider"
+                        style="display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); will-change: transform;">
+                        <img src="assets/presentation_act6/1.png" style="width: 100%; flex-shrink: 0;" alt="Slide 1">
+                        <img src="assets/presentation_act6/2.png" style="width: 100%; flex-shrink: 0;" alt="Slide 2">
+                        <img src="assets/presentation_act6/3.png" style="width: 100%; flex-shrink: 0;" alt="Slide 3">
+                        <img src="assets/presentation_act6/4.png" style="width: 100%; flex-shrink: 0;" alt="Slide 4">
+                        <img src="assets/presentation_act6/5.png" style="width: 100%; flex-shrink: 0;" alt="Slide 5">
+                        <img src="assets/presentation_act6/6.png" style="width: 100%; flex-shrink: 0;" alt="Slide 6">
+                        <img src="assets/presentation_act6/7.png" style="width: 100%; flex-shrink: 0;" alt="Slide 7">
+                        <img src="assets/presentation_act6/8.png" style="width: 100%; flex-shrink: 0;" alt="Slide 8">
+                        <img src="assets/presentation_act6/9.png" style="width: 100%; flex-shrink: 0;" alt="Slide 9">
+                        <img src="assets/presentation_act6/10.png" style="width: 100%; flex-shrink: 0;" alt="Slide 10">
+                        <img src="assets/presentation_act6/11.png" style="width: 100%; flex-shrink: 0;" alt="Slide 11">
+                        <img src="assets/presentation_act6/12.png" style="width: 100%; flex-shrink: 0;" alt="Slide 12">
+                        <img src="assets/presentation_act6/13.png" style="width: 100%; flex-shrink: 0;" alt="Slide 13">
+                        <img src="assets/presentation_act6/14.png" style="width: 100%; flex-shrink: 0;" alt="Slide 14">
+                        <img src="assets/presentation_act6/15.png" style="width: 100%; flex-shrink: 0;" alt="Slide 15">
+                    </div>
+
+                    <!-- Controls Overlay -->
+                    <button onclick="prevSlide()"
+                        style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;">&larr;</button>
+                    <button onclick="nextSlide()"
+                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;">&rarr;</button>
+
+                    <div
+                        style="position: absolute; bottom: 10px; right: 15px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; z-index: 10;">
+                        <span id="slideCounter">1</span> / 15
+                    </div>
                 </div>
             </div>
 
@@ -156,26 +169,36 @@
 
     <script>
         let currentPdf = '';
+        let currentSlide = 0;
+        const totalSlides = 15;
+        const slider = document.getElementById('presentationSlider');
+        const counter = document.getElementById('slideCounter');
 
         function togglePdf(pdfUrl, btnId, originalText) {
             const container = document.getElementById('pdfContainer');
             const embed = document.getElementById('pdfEmbed');
             const btn = document.getElementById(btnId);
 
-            // Reset other buttons if they were active
-            if (btnId === 'togglePdfBtn') {
-                document.getElementById('toggleResBtn').textContent = '📊 Veure Resultats Globals (PDF)';
-            } else {
-                document.getElementById('togglePdfBtn').textContent = '📄 Veure Instruccions (PDF)';
-            }
+            // Text values for all buttons
+            const btnStates = {
+                'togglePdfBtn': '📄 Veure Instruccions (PDF)',
+                'toggleResBtn': '📊 Veure Resultats Globals (PDF)',
+                'toggleIndBtn': '📑 Respostes Individuals (PDF)'
+            };
+
+            // Reset other buttons
+            Object.keys(btnStates).forEach(id => {
+                if (id !== btnId) {
+                    const b = document.getElementById(id);
+                    if (b) b.textContent = btnStates[id];
+                }
+            });
 
             if (container.style.display === 'none' || currentPdf !== pdfUrl) {
                 container.style.display = 'block';
                 embed.src = pdfUrl;
                 btn.textContent = '❌ Tancar PDF';
                 currentPdf = pdfUrl;
-
-                // Scroll to container
                 container.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
                 container.style.display = 'none';
@@ -183,6 +206,39 @@
                 currentPdf = '';
             }
         }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            counter.textContent = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Loop back
+            }
+            updateSlider();
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1; // Loop to end
+            }
+            updateSlider();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
     </script>
     <script src="js/atmosphere.js"></script>
     <script src="js/script.js"></script>

@@ -57,18 +57,28 @@ img {
     opacity: 1;
 }
 
-/* Animated Background */
+/* Animated Background (Optimized) */
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #121212, #1a1a2e, #2e1a2e, #121212);
-    background-size: 400% 400%;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #121212 100%);
     z-index: -2;
-    animation: gradientBG 15s ease infinite;
+    animation: slowRotate 30s linear infinite;
+    will-change: transform;
+}
+
+@keyframes slowRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Floating Orbs/Glow */
@@ -98,19 +108,7 @@ body::before {
     animation-delay: -5s;
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
+/* Removed expensive gradientBG animation */
 
 @keyframes float {
     0% {
@@ -557,16 +555,19 @@ a {
     border-color: var(--accent-color);
 }
 
-/* Cards (Glassmorphism) */
 .glass-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.03);
+    /* Lighter background */
+    backdrop-filter: blur(8px);
+    /* Reduced blur for performance */
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--card-border);
     border-radius: 15px;
     padding: 30px;
     transition: transform 0.3s ease, background 0.3s ease;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    will-change: transform;
+    /* Hint for browser optimization */
 }
 
 .glass-card:hover {

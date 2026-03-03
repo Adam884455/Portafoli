@@ -76,11 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SIDEBAR INJECTION & LOGIC ---
     const injectSidebar = () => {
         const sidebarHTML = `
-            <button class="menu-toggle-btn" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="top-nav-controls" style="position: fixed; top: 25px; right: 25px; z-index: 10001; display: flex; align-items: center; gap: 15px;">
+                <a href="assets/activity6-instructions.pdf" target="_blank" class="btn btn-instr-top" style="padding: 10px 20px; font-size: 0.85rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s;">📄 Instruccions</a>
+                <button class="menu-toggle-btn" id="menuToggle" style="position: static;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <nav class="sidebar" id="sidebar">
                 <div class="sidebar-header" id="toggleNavHeader">
                     <span>🏠 NAVEGACIÓ</span>
