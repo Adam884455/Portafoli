@@ -76,9 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SIDEBAR INJECTION & LOGIC ---
     const injectSidebar = () => {
         const sidebarHTML = `
-            <div class="top-nav-controls" style="position: fixed; top: 25px; right: 25px; z-index: 10001; display: flex; align-items: center; gap: 15px;">
-                <a href="assets/activity6-instructions.pdf" target="_blank" class="btn btn-instr-top" style="padding: 10px 20px; font-size: 0.85rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s;">📄 Instruccions</a>
-                <button class="menu-toggle-btn" id="menuToggle" style="position: static;">
+            <div class="top-nav-controls" style="position: fixed; top: 25px; right: 25px; z-index: 10001; display: flex; align-items: center; gap: 10px;">
+                <a href="#" id="topAct5Btn" class="btn" style="padding: 8px 15px; font-size: 0.75rem; background: rgba(187, 134, 252, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; color: white;">💭 Act. 5</a>
+                <a href="assets/activity6-instructions.pdf" target="_blank" class="btn" style="padding: 8px 15px; font-size: 0.75rem; background: rgba(3, 218, 198, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; color: white;">📄 Act. 6</a>
+                <button class="menu-toggle-btn" id="menuToggle" style="position: static; width: 45px; height: 45px;">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -144,37 +145,43 @@ document.addEventListener('DOMContentLoaded', () => {
         setupToggle(instrHeader, instrContent);
 
         // Activity 5 Text Window
-        if (act5Btn) {
-            act5Btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const text = `
-                    <html>
-                    <head>
-                        <title>Instruccions Activitat 5</title>
-                        <style>
-                            body { font-family: 'Inter', sans-serif; background: #121212; color: #fff; padding: 40px; line-height: 1.6; max-width: 800px; margin: auto; }
-                            h1 { color: #bb86fc; border-bottom: 2px solid #333; padding-bottom: 10px; }
-                            p { margin-bottom: 20px; font-size: 1.1rem; }
-                            .highlight { color: #03dac6; font-weight: bold; }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>ACTIVITAT 5. REFLEXIÓ</h1>
-                        <p>Sovint ens preguntem per què es parla tant de feminisme i no de “masculinisme”.</p>
-                        <p>El feminisme va néixer perquè durant segles les dones no tenien drets bàsics: no podien votar, estudiar, tenir propietats ni decidir sobre la seva vida.</p>
-                        <p>Els homes, com a grup, no han patit aquesta discriminació pel fet de ser homes.</p>
-                        <p>Això no vol dir que els homes no tinguin problemes: tenen més suïcidis, més violència, més pressió social per ser forts i no mostrar emocions.</p>
-                        <p>Però aquests problemes no venen de ser oprimits, sinó d’un model de masculinitat molt exigent.</p>
-                        <p>Per això no existeix un “masculinisme” com a moviment d’alliberament, però sí que cal parlar de noves masculinitats.</p>
-                        <p class="highlight">Si els homes també pateixen per culpa dels rols de gènere, per què alguns veuen el feminisme com una amenaça? Feu una reflexió.</p>
-                    </body>
-                    </html>
-                `;
-                const win = window.open("", "_blank");
-                win.document.write(text);
-                win.document.close();
-            });
-        }
+        const setupAct5Text = (btn) => {
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const text = `
+                        <html>
+                        <head>
+                            <title>Instruccions Activitat 5</title>
+                            <style>
+                                body { font-family: 'Inter', sans-serif; background: #121212; color: #fff; padding: 40px; line-height: 1.6; max-width: 800px; margin: auto; }
+                                h1 { color: #bb86fc; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                                p { margin-bottom: 20px; font-size: 1.1rem; }
+                                .highlight { color: #03dac6; font-weight: bold; }
+                            </style>
+                        </head>
+                        <body>
+                            <h1>ACTIVITAT 5. REFLEXIÓ</h1>
+                            <p>Sovint ens preguntem per què es parla tant de feminisme i no de “masculinisme”.</p>
+                            <p>El feminisme va néixer perquè durant segles les dones no tenien drets bàsics: no podien votar, estudiar, tenir propietats ni decidir sobre la seva vida.</p>
+                            <p>Els homes, com a grup, no han patit aquesta discriminació pel fet de ser homes.</p>
+                            <p>Això no vol dir que els homes no tinguin problemes: tenen més suïcidis, més violència, més pressió social per ser forts i no mostrar emocions.</p>
+                            <p>Però aquests problemes no venen de ser oprimits, sinó d’un model de masculinitat molt exigent.</p>
+                            <p>Per això no existeix un “masculinisme” com a moviment d’alliberament, però sí que cal parlar de noves masculinitats.</p>
+                            <p class="highlight">Si els homes també pateixen per culpa dels rols de gènere, per què alguns veuen el feminisme com una amenaça? Feu una reflexió.</p>
+                        </body>
+                        </html>
+                    `;
+                    const win = window.open("", "_blank");
+                    win.document.write(text);
+                    win.document.close();
+                });
+            }
+        };
+
+        const topAct5Btn = document.getElementById('topAct5Btn');
+        setupAct5Text(act5Btn);
+        setupAct5Text(topAct5Btn);
 
         // Close when clicking outside
         document.addEventListener('click', (e) => {
